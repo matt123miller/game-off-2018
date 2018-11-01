@@ -1,0 +1,24 @@
+{
+  "name": "game-off-2018",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt123miller/game-off-2018.git"
+  },
+  "author": "scotthdev and matt123miller",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/matt123miller/game-off-2018/issues"
+  },
+  "homepage": "https://github.com/matt123miller/game-off-2018#readme",
+  "devDependencies": {
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
+}
