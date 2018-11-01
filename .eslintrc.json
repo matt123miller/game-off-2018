@@ -1,3 +1,35 @@
 {
-    "extends": "airbnb-base"
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": "eslint:recommended",
+    "rules": {
+        "parserOptions": {
+            "sourceType": "module"
+        },
+        "globals": {
+            "use": true
+        },
+        "rules": {
+            "indent": [
+                "error",
+                4
+            ],
+            "linebreak-style": [
+                "error",
+                "unix"
+            ],
+            "quotes": [
+                "error",
+                "single"
+            ],
+            "semi": [
+                "warn",
+                "always"
+            ],
+            "no-console": "off"
+        }
+    }
 }

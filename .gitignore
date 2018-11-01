@@ -1,3 +1,8 @@
+# Our ignores
+dist
+
+
+
 # Logs
 logs
 *.log
