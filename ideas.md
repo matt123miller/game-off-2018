@@ -21,3 +21,8 @@ Chess but taking a piece mutates something of the taken piece into the "taker"
 Something something match 3 combine a thing
 
 Triple Town style thing
+
+2 people 1 keyboard
+
+something something slot machine and match 3 game.
+
