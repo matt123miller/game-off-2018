@@ -1,3 +1,8 @@
-const player = require('./player');
+import p5 from 'p5';
+import 'p5/lib/addons/p5.sound';
+import 'p5/lib/addons/p5.dom';
 
-player.helloWorld('matt');
+import sketch from './sketch';
+
+new p5(sketch);
+
