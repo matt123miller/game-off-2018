@@ -1,11 +1,29 @@
-# game-off-2018
+# Game Off 2018
 
-## Installation
+## Project setup
+```
+npm install
+```
 
-`npm install`
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-## Scripts
+### Compiles and minifies for production
+```
+npm run build
+```
 
-`npm run build` does some browserify 
+### Run your tests
+```
+npm run test
+```
 
-`npm run serve` uses `http-server` to serve the dist directory
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
