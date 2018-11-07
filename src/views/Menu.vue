@@ -1,12 +1,9 @@
 <template>
     <div class="menu">
         <h1>Menu</h1>
-        <router-link to="/brews">View Brews</router-link>
+        <ul>
+            <li><router-link to="/brews">View Brews</router-link></li>
+            <li><router-link to="/flavours">Select flavours</router-link></li>
+        </ul>
     </div>
 </template>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-
-export default class Menu extends Vue {}
-</script>
