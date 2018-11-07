@@ -8,8 +8,6 @@
         "clean": "rm -rf dist"
     },
     "dependencies": {
-        "@types/p5": "^0.7.1",
-        "p5": "^0.5.9"
     },
     "devDependencies": {
         "eslint": "^5.8.0",
