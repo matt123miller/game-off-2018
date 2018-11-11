@@ -8,4 +8,4 @@ const ing = new Ingredient('oats', {
   sweet: 0.2,
 });
 
-console.log(ing.toString());
+// console.log(ing.toString());

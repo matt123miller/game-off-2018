@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Menu from './views/Menu.vue';
 import Brews from './views/Brews.vue';
 import Ingredients from './views/Ingredients.vue';
+import Containers from './views/Containers.vue';
 
 Vue.use(Router);
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/ingredients',
       name: 'ingredients',
       component: Ingredients,
+    },
+    {
+      path: '/container',
+      name: 'container',
+      component: Containers,
     },
   ],
 });
