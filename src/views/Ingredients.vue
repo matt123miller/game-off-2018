@@ -9,16 +9,33 @@
 
 
 <script lang="ts">
+import CanvasIngredientPicker from "../components/CanvasIngredientPicker.vue";
+import CanvasIngredient from "../components/CanvasIngredient.vue";
 import { randomIngredients } from "../components/IngredientList";
 
 export default {
+  components: {
+    CanvasIngredientPicker,
+    CanvasIngredient
+  },
+
   data() {
     return {
       availableIngredients: randomIngredients()
     };
   },
+
+  // Randomly selects a value to randomly increment or decrement every 16 ms.
+  // Not really important, just demonstrates that reactivity still works.
   mounted() {
-    console.log(this.$route.params.incomingStore);
+    console.log(this.availableIngredients);
   }
 };
 </script>
+
+<style scoped lang='scss'>
+.ingredients-picker {
+  width: 600px;
+  height: 600px;
+}
+</style>
