@@ -9,12 +9,12 @@
 
 
 <script lang="ts">
-import IngredientItem from "../components/IngredientItem";
+import { randomIngredients } from "../components/IngredientList";
 
 export default {
   data() {
     return {
-      availableIngredients: ["ingredient 1", "ingredient 2", "ingredient 3"]
+      availableIngredients: randomIngredients()
     };
   }
 };
