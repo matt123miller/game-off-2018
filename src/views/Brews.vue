@@ -3,7 +3,7 @@
         <h1>Select A Brew</h1>
         <ul>
             <li v-for="(brew, key, index) in $store.state.brews" :key="index"><router-link :to="{ name: 'ingredients', params: { brew: brew.id }}">{{ brew.name }}</router-link></li>
-            <li><router-link :to="{ name: 'ingredients'}" v-on:click.native="createNewBrew(id)">New Brew</router-link></li>
+            <li><router-link :to="{ name: 'ingredients', params: {incomingStore: this.$store.state}}" v-on:click.native="createNewBrew()">New Brew</router-link></li>
         </ul>
  {{allBrews}}   </div>
 </template>
@@ -19,13 +19,14 @@ export default {
     };
   },
   methods: {
-    createNewBrew: function(id: string) {
+    createNewBrew: function() {
       // Create object, push to store.brews
       const newBrew = {
-        id: id,
+        id: generateId(),
         name: "New Brew" // Could add randomly generated name here in future?
       };
-    //   this.$store.state.brews.push(newBrew);
+
+      this.$store.state.brews.push(newBrew);
     }
   },
   computed: {
