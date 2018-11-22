@@ -3,37 +3,40 @@
         <h1>This is the flavours page</h1>
         
         <div v-for="(ingredient, index) in availableIngredients" :key="index">
-            <input type="checkbox" id="ingredient-type" data-ingredient-id="{{ ingredient.id }}">
-            <label for="ingredient-type"></label>
+            <input type="checkbox" :id="ingredient" :value="ingredient" :data-ingredient-id="ingredient.id" v-model="chosenIngredients">
+            <label :for="ingredient"></label>
             {{ ingredient.name }} 
         </div>
 
-    <button type="submit"></button>
+    <button v-on:click="createBeer">create beer</button>
+
     </div>
 </template >
 
 
 <script lang="ts">
-import CanvasIngredientPicker from "../components/CanvasIngredientPicker.vue";
-import CanvasIngredient from "../components/CanvasIngredient.vue";
 import { randomIngredients } from "../components/IngredientList";
+import IngredientItem from "@/components/IngredientItem";
 
 export default {
-  components: {
-    CanvasIngredientPicker,
-    CanvasIngredient
-  },
+  components: {},
 
   data() {
     return {
-      availableIngredients: randomIngredients()
+      availableIngredients: randomIngredients(),
+      chosenIngredients: []
     };
   },
-
-  // Randomly selects a value to randomly increment or decrement every 16 ms.
-  // Not really important, just demonstrates that reactivity still works.
-  mounted() {
+  created() {
     console.log(this.availableIngredients);
+  },
+  methods: {
+    createBeer: function(event: Event) {
+      console.log({
+        name: this.chosenIngredients[0].name,
+        ...this.chosenIngredients[0].flavourProfile
+      });
+    }
   }
 };
 </script>
