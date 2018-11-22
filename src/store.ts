@@ -1,28 +1,25 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Ingredient from './interfaces/Ingredient';
+import Brew from './interfaces/Brew';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-    state: {
-        brews: Array(),
-    },
+  state: {
+    brews: Array<Brew>(),
     mutations: {
-        addBrew(state, paylod) {
-            state.brews.push(paylod.brew);
-        },
-        score: 1.9,
-        flavourProfile: {
-          bitter: 0.3,
-          sweet: 0.7,
-          sour: 0.1,
-          spice: 0.05,
-          salty: 0.05,
-        },
-        unitsSold: 46,
+      addBrew(state, payload) {
+        state.brews.push(payload.brew);
       },
-    ],
+      addIngredients(state, payload: Ingredient[]) {
+        // Get the current beer being developed...How?
+
+        // Add the ingredients to that beer or the store
+        state.ingredients = payload;
+      },
+    },
+    actions: {},
     ingredients: [
       {
         name: 'Candyfloss',
@@ -46,16 +43,4 @@ export default new Vuex.Store({
       },
     ],
   },
-  mutations: {
-    addBrew(state, payload) {
-      state.brews.push(payload);
-    },
-    addIngredients(state, payload: Ingredient[]) {
-      // Get the current beer being developed...How?
-
-      // Add the ingredients to that beer or the store
-      state.ingredients = payload;
-    },
-  },
-  actions: {},
 });
