@@ -32,10 +32,15 @@ export default {
   },
   methods: {
     createBeer: function(event: Event) {
-      console.log({
-        name: this.chosenIngredients[0].name,
-        ...this.chosenIngredients[0].flavourProfile
+      const ingredients: IngredientItem[] = this.chosenIngredients.map(i => {
+        return {
+          name: i.name,
+          flavourProfile: i.flavourProfile
+        };
       });
+
+      // Add the new ingredients to the current beer via a Vuex mutation
+      this.$store.commit("addIngredients", ingredients);
     }
   }
 };
