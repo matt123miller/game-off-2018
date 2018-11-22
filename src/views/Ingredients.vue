@@ -12,10 +12,13 @@
 import { randomIngredients } from "../components/IngredientList";
 
 export default {
-    data() {
-        return {
-            availableIngredients: randomIngredients()
-        };
-    },
+  data() {
+    return {
+      availableIngredients: randomIngredients()
+    };
+  },
+  mounted() {
+    console.log(this.$route.params.incomingStore);
+  }
 };
 </script>
