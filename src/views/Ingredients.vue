@@ -1,23 +1,54 @@
 <template>
     <div class="flavours">
         <h1>This is the flavours page</h1>
-        <p>Current Brew: {{ brew }}</p>
-        <ul>
-            <li v-for="(ingredient, index) in availableIngredients" :key="index">{{ ingredient.name }} </li>
-        </ul>
+        
+        <div v-for="(ingredient, index) in availableIngredients" :key="index">
+            <input type="checkbox" :id="ingredient" :value="ingredient" :data-ingredient-id="ingredient.id" v-model="chosenIngredients">
+            <label :for="ingredient"></label>
+            {{ ingredient.name }} 
+        </div>
+
+    <button v-on:click="createBeer">create beer</button>
+
     </div>
 </template>
 
 
 <script lang="ts">
 import { randomIngredients } from "../components/IngredientList";
+import IngredientItem from "@/components/IngredientItem";
 
 export default {
+  components: {},
+
   data() {
     return {
       availableIngredients: randomIngredients(),
-      brew: this.$route.params.brew,
+      chosenIngredients: []
     };
+  },
+  created() {
+    console.log(this.availableIngredients);
+  },
+  methods: {
+    createBeer: function(event: Event) {
+      const ingredients: IngredientItem[] = this.chosenIngredients.map(i => {
+        return {
+          name: i.name,
+          flavourProfile: i.flavourProfile
+        };
+      });
+
+      // Add the new ingredients to the current beer via a Vuex mutation
+      this.$store.commit("addIngredients", ingredients);
+    }
   }
 };
 </script>
+
+<style scoped lang='scss'>
+.ingredients-picker {
+  width: 600px;
+  height: 600px;
+}
+</style>
