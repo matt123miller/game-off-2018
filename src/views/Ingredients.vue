@@ -1,16 +1,21 @@
 <template>
-    <div class="flavours">
-        <h1>This is the flavours page</h1>
-        
-        <div v-for="(ingredient, index) in availableIngredients" :key="index">
-            <input type="checkbox" :id="ingredient" :value="ingredient" :data-ingredient-id="ingredient.id" v-model="chosenIngredients">
-            <label :for="ingredient"></label>
-            {{ ingredient.name }} 
-        </div>
+  <div class="flavours">
+    <h1>This is the flavours page</h1>
+
+    <div v-for="(ingredient, index) in availableIngredients" :key="index">
+      <input
+        type="checkbox"
+        :id="ingredient"
+        :value="ingredient"
+        :data-ingredient-id="ingredient.id"
+        v-model="chosenIngredients"
+      >
+      <label :for="ingredient"></label>
+      {{ ingredient.name }}
+    </div>
 
     <button v-on:click="createBeer">create beer</button>
-
-    </div>
+  </div>
 </template>
 
 
@@ -24,7 +29,7 @@ export default {
   data() {
     return {
       availableIngredients: randomIngredients(),
-      chosenIngredients: []
+      chosenIngredients: Array<IngredientItem>()
     };
   },
   created() {
@@ -32,15 +37,8 @@ export default {
   },
   methods: {
     createBeer: function(event: Event) {
-      const ingredients: IngredientItem[] = this.chosenIngredients.map(i => {
-        return {
-          name: i.name,
-          flavourProfile: i.flavourProfile
-        };
-      });
-
       // Add the new ingredients to the current beer via a Vuex mutation
-      this.$store.commit("addIngredients", ingredients);
+      this.$store.commit("addIngredients", this.chosenIngredients);
     }
   }
 };
