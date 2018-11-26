@@ -8,11 +8,11 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         brews: Array<Brew>(),
-        currentBrew: {},
+        currentBrew: {} as Brew,
         ingredients: Array<Ingredient>(),
     },
     mutations: {
-        addBrew(state, payload) {
+        addBrew(state, payload: { brew: Brew }) {
             state.brews.push(payload.brew);
             state.currentBrew = payload.brew;
         },

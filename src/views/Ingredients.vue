@@ -36,7 +36,7 @@ export default {
     console.log(this.availableIngredients);
   },
   methods: {
-    createBeer: function(event: Event) {
+    createBeer(event: Event) {
       // Add the new ingredients to the current beer via a Vuex mutation
       this.$store.commit("addIngredients", this.chosenIngredients);
     }
