@@ -8,17 +8,19 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         brews: Array<Brew>(),
+        currentBrew: {},
         ingredients: Array<Ingredient>(),
     },
     mutations: {
         addBrew(state, payload) {
             state.brews.push(payload.brew);
+            state.currentBrew = payload.brew;
         },
         addIngredients(state, payload: Ingredient[]) {
             // Get the current beer being developed...How?
 
             // Add the ingredients to that beer or the store
-            state.ingredients = payload;
+            state.currentBrew.ingredients = payload;
         },
     },
     actions: {},
