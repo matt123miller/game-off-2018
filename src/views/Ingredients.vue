@@ -14,7 +14,10 @@
       {{ ingredient.name }}
     </div>
 
-    <button v-on:click="createBeer">create beer</button>
+    <router-link
+      :to="{ name: 'container', params: {brew: id }}"
+      v-on:click="createBeer"
+    >Choose Flavours</router-link>
   </div>
 </template>
 
