@@ -27,18 +27,18 @@ export default {
   },
   methods: {
     createNewBrew: function(id: string) {
-        const newBrew = {
-            id: id,
-            name: "New Brew" // Could add randomly generated name here in future?
-        };
-        this.$store.commit('addBrew', {
-            brew: newBrew
-        });
+      const newBrew = {
+        id: id,
+        name: "Brew " + id // Could add randomly generated name here in future?
+      };
+      this.$store.commit("addBrew", {
+        brew: newBrew
+      });
     }
   },
   computed: {
     allBrews: function() {
-        return this.$store.state.brews;
+      return this.$store.state.brews;
     }
   }
 };

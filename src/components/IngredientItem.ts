@@ -1,6 +1,7 @@
-import FlavourProfile from '../interfaces/FlavourProfile';
+import FlavourProfile from '@/interfaces/FlavourProfile';
+import Ingredient from '@/interfaces/Ingredient';
 
-export default class IngredientItem {
+export default class IngredientItem implements Ingredient {
   public name: string;
   public flavourProfile: FlavourProfile;
 

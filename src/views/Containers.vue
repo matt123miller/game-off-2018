@@ -11,47 +11,23 @@
 </template>
 
 <script lang="ts">
+import Container from '@/interfaces/Container';
+import Brew from "@/interfaces/Brew";
+import ContainerItem from '@/components/ContainerItem';
+
 export default {
     data() {
         return {
-            currentBrew: {
-                id: 34567890,
-                name: 'Broski Brewski',
-                ingredients: [
-                    {
-                        name: 'Candyfloss',
-                        flavourProfile: {
-                        bitter: 0.2,
-                        sweet: 0.8,
-                        sour: 0.1,
-                        spice: 0.0,
-                        salty: 0.0,
-                        },
-                    },
-                    {
-                        name: 'Oats',
-                        flavourProfile: {
-                        bitter: 0.4,
-                        sweet: 0.6,
-                        sour: 0.1,
-                        spice: 0.1,
-                        salty: 0.1,
-                        },
-                    },
-                ],
-                flavourProfile: {
-                    bitter: 0.3,
-                    sweet: 0.7,
-                    sour: 0.1,
-                    spice: 0.05,
-                    salty: 0.05,
-                },
-            },
+            currentBrew: {} as Brew,
+            chosenContainer: new ContainerItem('Empty', 0),
         };
     },
     methods: {
+        currentBrew: function() {
+            this.$store.getters.currentBrew()
+        },
         chooseContainer: function(slug: string) {
-            this.currentBrew.container = slug;
+            this.$store.commit("addContainer", this.chosenContainer);
         }
     },
 }
